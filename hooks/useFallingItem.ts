@@ -28,7 +28,7 @@ export function useFallingItem(): UseFallingItemReturn {
   const [currentItem, setCurrentItem] = useState<FallingItem | null>(null);
   const positionRef = useRef<number>(0);
   const currentItemRef = useRef<FallingItem | null>(null);
-  const updateIntervalRef = useRef<number>();
+  const updateIntervalRef = useRef<number | undefined>(undefined);
   const UPDATE_THROTTLE = 16; // Update state every ~16ms (60fps)
 
   // Keep ref in sync with state
