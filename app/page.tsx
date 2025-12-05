@@ -116,11 +116,7 @@ export default function Home() {
           <h1 className="text-4xl sm:text-6xl md:text-[8rem] lg:text-[12rem] xl:text-[16rem] font-bold bg-gradient-to-b from-white to-white/20 bg-clip-text text-transparent leading-tight">
             RENAISSANCE
           </h1>
-          <img
-            src="/images/plant.png"
-            alt="Plant illustration"
-            className="w-[8rem] sm:w-[12rem] md:w-[18rem] lg:w-[20rem] absolute translate-y-[-4rem] sm:translate-y-[-6rem] md:translate-y-[-11rem] lg:translate-y-[-13.1rem] translate-x-[0rem] md:translate-x-[-1.1rem]"
-          />
+          
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold translate-y-[-0.5rem] sm:translate-y-[-1rem] md:translate-y-[-1.5rem] lg:translate-y-[-2rem] max-w-xs sm:max-w-md md:max-w-none px-2">
             De chaque petite graine naît une nouvelle vie.
           </p>
