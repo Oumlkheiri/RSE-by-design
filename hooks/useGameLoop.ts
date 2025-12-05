@@ -20,6 +20,7 @@ interface UseGameLoopReturn {
   resumeGame: () => void;
   resetGame: () => void;
   incrementScore: () => void;
+  addCO2Saved: (amount: number) => void;
   decrementLives: () => void;
   setGameOver: () => void;
 }
@@ -41,7 +42,7 @@ export function useGameLoop(): UseGameLoopReturn {
   });
 
   const [speed, setSpeed] = useState(2);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   // Update speed based on score
   useEffect(() => {
