@@ -256,7 +256,7 @@ const JeuEcoMan = () => {
 
   // Check collision with ghosts
   const verifierCollisionFantome = useCallback(
-    (x, y) => {
+    (x : any, y : any) => {
       return fantomes.some((fantome) => fantome.x === x && fantome.y === y);
     },
     [fantomes],
@@ -276,7 +276,7 @@ const JeuEcoMan = () => {
 
   // Move Eco-Man
   const deplacerEcoMan = useCallback(
-    (dx, dy) => {
+    (dx : number, dy : number) => {
       if (partieTerminee || partieGagnee || enPause) return;
 
       const newX = ecoMan.x + dx;
@@ -379,7 +379,7 @@ const JeuEcoMan = () => {
 
   // Handle keyboard input
   useEffect(() => {
-    const gererToucheClavier = (e) => {
+    const gererToucheClavier = (e : KeyboardEvent) => {
       switch (e.key) {
         case "ArrowUp":
         case "z":
