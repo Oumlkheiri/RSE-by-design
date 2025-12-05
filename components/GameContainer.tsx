@@ -20,7 +20,7 @@ import type { ItemType } from '@/lib/utils';
  */
 export function GameContainer() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
   const lastSpawnTimeRef = useRef<number>(Date.now() - 2000); // Initialize to allow immediate first spawn
   const SPAWN_INTERVAL = 2000; // 2 seconds between items
 
