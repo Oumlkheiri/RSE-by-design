@@ -567,7 +567,7 @@ const JeuEcoMan = () => {
   };
 
   // Mobile touch controls
-  const gererMouvementTactile = (direction : any) => {
+  const gererMouvementTactile = (direction: string) => {
     switch (direction) {
       case "up":
         deplacerEcoMan(0, -1);
@@ -1071,14 +1071,60 @@ const JeuEcoMan = () => {
             )}
           </div>
 
-          {/* Mobile Controls */}
+          {/* Mobile Controls - Added directional buttons */}
           {isMobile && (
-            <div className="mt-4 w-full max-w-md">
-              {/* Game Actions Mobile */}
+            <div className="mt-6 w-full max-w-md mx-auto">
+              {/* Directional Controls */}
+              <div className="relative w-64 h-64 mx-auto mb-4">
+                {/* Up Button */}
+                <button
+                  onClick={() => gererMouvementTactile("up")}
+                  className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+                  style={{ backgroundColor: COLORS.secondary }}
+                >
+                  <ArrowUp className="w-8 h-8" style={{ color: COLORS.primary }} />
+                </button>
+
+                {/* Left Button */}
+                <button
+                  onClick={() => gererMouvementTactile("left")}
+                  className="absolute top-1/2 left-0 transform -translate-y-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+                  style={{ backgroundColor: COLORS.secondary }}
+                >
+                  <ArrowLeft className="w-8 h-8" style={{ color: COLORS.primary }} />
+                </button>
+
+                {/* Center Circle */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: COLORS.accent }}
+                >
+                  <Leaf className="w-6 h-6" style={{ color: COLORS.primary }} />
+                </div>
+
+                {/* Right Button */}
+                <button
+                  onClick={() => gererMouvementTactile("right")}
+                  className="absolute top-1/2 right-0 transform -translate-y-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+                  style={{ backgroundColor: COLORS.secondary }}
+                >
+                  <ArrowRight className="w-8 h-8" style={{ color: COLORS.primary }} />
+                </button>
+
+                {/* Down Button */}
+                <button
+                  onClick={() => gererMouvementTactile("down")}
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+                  style={{ backgroundColor: COLORS.secondary }}
+                >
+                  <ArrowDown className="w-8 h-8" style={{ color: COLORS.primary }} />
+                </button>
+              </div>
+
+              {/* Game Actions Row */}
               <div className="flex gap-2 mb-3 justify-center px-2">
                 <button
                   onClick={basculerPause}
-                  className="flex-1 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-1 min-w-0"
+                  className="flex-1 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-1 min-w-0 shadow-lg active:scale-95 transition-transform"
                   style={{ backgroundColor: COLORS.accent, color: COLORS.primary }}
                 >
                   {enPause ? (
@@ -1095,7 +1141,7 @@ const JeuEcoMan = () => {
                 </button>
                 <button
                   onClick={() => setAfficherControles(!afficherControles)}
-                  className="flex-1 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-1 min-w-0"
+                  className="flex-1 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-1 min-w-0 shadow-lg active:scale-95 transition-transform"
                   style={{ backgroundColor: COLORS.secondary, color: COLORS.primary }}
                 >
                   <HelpCircle className="w-4 h-4" />
@@ -1103,16 +1149,16 @@ const JeuEcoMan = () => {
                 </button>
                 <button
                   onClick={redemarrerNiveau}
-                  className="flex-1 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-1 min-w-0"
+                  className="flex-1 py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-1 min-w-0 shadow-lg active:scale-95 transition-transform"
                   style={{ backgroundColor: '#ef4444', color: 'white' }}
                 >
                   <RefreshCcw className="w-4 h-4" />
-                  <span className="truncate">RECOMMENCER</span>
+                  <span className="truncate">REDÉMARRER</span>
                 </button>
               </div>
 
               {/* Levels Progress Mobile */}
-              <div className="rounded-xl p-3 border-2 mb-3 mx-2" style={{ backgroundColor: COLORS.background, borderColor: COLORS.accent }}>
+              <div className="rounded-xl p-3 border-2 mb-3" style={{ backgroundColor: COLORS.background, borderColor: COLORS.accent }}>
                 <div className="flex items-center justify-between mb-2 gap-2">
                   <div className="flex items-center gap-2 min-w-0 flex-1">
                     {renderIconeNiveau(niveauActuel)}
@@ -1134,7 +1180,7 @@ const JeuEcoMan = () => {
                         onClick={() => initialiserNiveau(index)}
                         className={`px-3 py-2 rounded text-xs whitespace-nowrap flex items-center gap-1 flex-shrink-0 ${
                           niveauActuel === index ? 'font-bold' : ''
-                        }`}
+                        } shadow-md active:scale-95 transition-transform`}
                         style={{
                           backgroundColor: niveauActuel === index ? COLORS.secondary : COLORS.lightBg,
                           color: niveauActuel === index ? COLORS.primary : COLORS.text
@@ -1185,7 +1231,7 @@ const JeuEcoMan = () => {
                       <div className="mt-6">
                         <button
                           onClick={() => setAfficherControles(false)}
-                          className="w-full py-3 rounded-lg font-bold flex items-center justify-center gap-2"
+                          className="w-full py-3 rounded-lg font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform"
                           style={{ backgroundColor: COLORS.secondary, color: COLORS.primary }}
                         >
                           <Check className="w-5 h-5" />
@@ -1200,7 +1246,7 @@ const JeuEcoMan = () => {
           )}
         </div>
 
-        {/* Side Panel - Hidden on small mobile, shown on tablet+ */}
+        {/* Side Panel - Hidden on mobile, shown on tablet+ */}
         <div className="hidden lg:flex flex-col gap-4 w-80">
           {/* Controls */}
           <div
@@ -1348,7 +1394,7 @@ const JeuEcoMan = () => {
                 return (
                   <div
                     key={niveau.id}
-                    className={`p-3 rounded-lg transition-all cursor-pointer ${niveauActuel === index ? "scale-105" : "opacity-80"}`}
+                    className={`p-3 rounded-lg transition-all cursor-pointer ${niveauActuel === index ? "scale-105" : "opacity-80"} hover:scale-[1.02]`}
                     onClick={() => initialiserNiveau(index)}
                     style={{
                       backgroundColor:
@@ -1424,7 +1470,7 @@ const JeuEcoMan = () => {
           <div className="flex gap-3">
             <button
               onClick={basculerPause}
-              className="flex-1 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+              className="flex-1 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 active:scale-95"
               style={{ backgroundColor: COLORS.accent, color: COLORS.primary }}
             >
               {enPause ? (
@@ -1441,7 +1487,7 @@ const JeuEcoMan = () => {
             </button>
             <button
               onClick={redemarrerNiveau}
-              className="flex-1 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+              className="flex-1 py-3 rounded-lg font-bold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 active:scale-95"
               style={{ backgroundColor: "#ef4444", color: "white" }}
             >
               <RefreshCcw className="w-5 h-5" />
@@ -1450,185 +1496,6 @@ const JeuEcoMan = () => {
           </div>
         </div>
       </div>
-
-      {/* Mobile Bottom Panel */}
-      {isMobile && (
-        <div className="mt-4 w-full max-w-md">
-          {/* Game Actions Mobile */}
-          <div className="flex gap-2 mb-3 justify-center">
-            <button
-              onClick={basculerPause}
-              className="flex-1 py-2 rounded-lg font-bold text-sm flex items-center justify-center gap-1"
-              style={{ backgroundColor: COLORS.accent, color: COLORS.primary }}
-            >
-              {enPause ? (
-                <>
-                  <Play className="w-4 h-4" />
-                  REPRENDRE
-                </>
-              ) : (
-                <>
-                  <Pause className="w-4 h-4" />
-                  PAUSE
-                </>
-              )}
-            </button>
-            <button
-              onClick={() => setAfficherControles(!afficherControles)}
-              className="flex-1 py-2 rounded-lg font-bold text-sm flex items-center justify-center gap-1"
-              style={{
-                backgroundColor: COLORS.secondary,
-                color: COLORS.primary,
-              }}
-            >
-              <HelpCircle className="w-4 h-4" />
-              AIDE
-            </button>
-            <button
-              onClick={redemarrerNiveau}
-              className="flex-1 py-2 rounded-lg font-bold text-sm flex items-center justify-center gap-1"
-              style={{ backgroundColor: "#ef4444", color: "white" }}
-            >
-              <RefreshCcw className="w-4 h-4" />
-              RECOMMENCER
-            </button>
-          </div>
-
-          {/* Levels Progress Mobile */}
-          <div
-            className="rounded-xl p-3 border-2 mb-3"
-            style={{
-              backgroundColor: COLORS.background,
-              borderColor: COLORS.accent,
-            }}
-          >
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-2">
-                {renderIconeNiveau(niveauActuel)}
-                <span
-                  className="font-bold text-sm"
-                  style={{ color: COLORS.secondary }}
-                >
-                  {NIVEAUX[niveauActuel]?.nom}
-                </span>
-              </div>
-              <span
-                className="text-xs px-2 py-1 rounded flex items-center gap-1"
-                style={{
-                  backgroundColor: COLORS.primary,
-                  color: COLORS.accent,
-                }}
-              >
-                <Target className="w-3 h-3" />
-                {recyclablesCollectes}/{totalRecyclables}
-              </span>
-            </div>
-            <div className="flex gap-1 overflow-x-auto pb-2 justify-center">
-              {NIVEAUX.map((niveau, index) => {
-                const IconeNiveau = niveau.icon;
-                return (
-                  <button
-                    key={niveau.id}
-                    onClick={() => initialiserNiveau(index)}
-                    className={`px-3 py-1 rounded text-xs whitespace-nowrap flex items-center gap-1 ${niveauActuel === index ? "font-bold" : ""}`}
-                    style={{
-                      backgroundColor:
-                        niveauActuel === index
-                          ? COLORS.secondary
-                          : COLORS.lightBg,
-                      color:
-                        niveauActuel === index ? COLORS.primary : COLORS.text,
-                    }}
-                  >
-                    <IconeNiveau className="w-3 h-3" />
-                    {niveau.id}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Controls Help Modal */}
-          {afficherControles && (
-            <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-              <div
-                className="rounded-xl p-6 max-w-sm w-full border-2"
-                style={{
-                  backgroundColor: COLORS.background,
-                  borderColor: COLORS.secondary,
-                }}
-              >
-                <div className="flex justify-between items-center mb-4">
-                  <h3
-                    className="text-xl font-bold flex items-center gap-2"
-                    style={{ color: COLORS.accent }}
-                  >
-                    <Gamepad2 className="w-5 h-5" />
-                    Contrôles du Jeu
-                  </h3>
-                  <button
-                    onClick={() => setAfficherControles(false)}
-                    className=""
-                    style={{ color: COLORS.secondary }}
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-                </div>
-                <div className="space-y-3">
-                  <p
-                    className="flex items-center gap-2"
-                    style={{ color: COLORS.text }}
-                  >
-                    <ArrowUp className="w-4 h-4" />
-                    Utilisez les boutons directionnels pour déplacer Eco-Man
-                  </p>
-                  <p
-                    className="flex items-center gap-2"
-                    style={{ color: COLORS.text }}
-                  >
-                    <Recycle
-                      className="w-4 h-4"
-                      style={{ color: COLORS.secondary }}
-                    />
-                    Collectez tous les déchets recyclables pour avancer
-                  </p>
-                  <p
-                    className="flex items-center gap-2"
-                    style={{ color: COLORS.text }}
-                  >
-                    <Sun className="w-4 h-4" style={{ color: COLORS.accent }} />
-                    Les panneaux solaires donnent une invincibilité temporaire
-                  </p>
-                  <p
-                    className="flex items-center gap-2"
-                    style={{ color: COLORS.text }}
-                  >
-                    <AlertCircle
-                      className="w-4 h-4"
-                      style={{ color: "#ef4444" }}
-                    />
-                    Évitez les fantômes pollueurs ou mangez-les avec l'énergie
-                    solaire
-                  </p>
-                  <div className="mt-6">
-                    <button
-                      onClick={() => setAfficherControles(false)}
-                      className="w-full py-3 rounded-lg font-bold flex items-center justify-center gap-2"
-                      style={{
-                        backgroundColor: COLORS.secondary,
-                        color: COLORS.primary,
-                      }}
-                    >
-                      <Check className="w-5 h-5" />
-                      COMPRIS !
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 };
