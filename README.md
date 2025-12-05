@@ -34,3 +34,74 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# EcoPlatform – Préserver l’Environnement avec le Web
+
+EcoPlatform est une application web interactive développée avec **Next.js**, dont l’objectif est de sensibiliser les utilisateurs à la **préservation de l’environnement** grâce à une combinaison d’articles éducatifs et de mini-jeux ludiques.
+
+---
+
+## Présentation du Projet
+
+Ce projet a été conçu pour encourager des comportements éco-responsables à travers une plateforme moderne, visuelle et accessible à tous.  
+Il propose une **expérience immersive** combinant 
+- Une **landing page** avec un arbre symbolique et des données clés liées à l’écologie.  
+- Une **page d’articles** informatifs sur l’environnement.  
+- Deux **mini-jeux éducatifs** centrés sur la planète et le recyclage.
+
+---
+
+## Fonctionnalités Principales
+
+### 1. Landing Page  
+La page d’accueil présente :
+- un grand **arbre interactif** représentant la nature  
+- des informations essentielles sur la planète  
+- des statistiques illustrant les enjeux environnementaux  
+- une navigation intuitive vers les autres sections  
+
+---
+
+### 2. Articles sur l’Environnement  
+Une collection d’articles qui couvrent :
+- le changement climatique  
+- la pollution  
+- la biodiversité  
+- les énergies renouvelables  
+- le recyclage  
+- des gestes simples du quotidien pour protéger la planète  
+
+Chaque article est présenté sous forme claire et accessible, avec un contenu éducatif et parfois interactif.
+
+---
+
+### 3. Mini-Jeux Éducatifs
+
+#### 🔹 Eco-Man  
+Jeu inspiré du célèbre Pac-Man, revisité en mode écolo :
+- Collecte d’éléments bénéfiques pour l’environnement  
+- Évitement de pollueurs et déchets toxiques  
+- Score basé sur les bonnes actions  
+
+**Objectif pédagogique :** apprendre les bons gestes à travers la gamification.
+
+#### 🔹 Recycling Game  
+Jeu basé sur le **tri sélectif** :
+- Trier des déchets dans les bons bacs  
+- Points selon la précision  
+- Messages éducatifs après chaque niveau  
+
+**Objectif pédagogique :** enseigner les règles du recyclage de manière fun.
+
+---
+
+## Technologies Utilisées
+
+- **Next.js** – Framework React avec SSR et SSG  
+- **React.js** – Interface utilisateur  
+- **CSS / TailwindCSS** – Style et design  
+- **JavaScript** – Logique des mini-jeux    
+- **API Next.js** – Gestion des articles et scores  
+
+---
