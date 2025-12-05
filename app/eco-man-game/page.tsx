@@ -157,8 +157,15 @@ const JeuEcoMan = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [niveauActuel, setNiveauActuel] = useState(0);
   const [ecoMan, setEcoMan] = useState({ x: 9, y: 15, direction: "right" });
-  const [fantomes, setFantomes] = useState([]);
-  const [maze, setMaze] = useState([]);
+  type Fantome = {
+    x: number;
+    y: number;
+    color: string;
+    nom: string;
+    icon: React.ComponentType<any>;
+  };
+  const [fantomes, setFantomes] = useState<Fantome[]>([]);
+  const [maze, setMaze] = useState<number[][]>([]);
   const [score, setScore] = useState(0);
   const [vies, setVies] = useState(3);
   const [modePuissance, setModePuissance] = useState(false);
@@ -173,7 +180,7 @@ const JeuEcoMan = () => {
   const cellSize = isMobile ? MOBILE_CELL_SIZE : CELL_SIZE;
 
   // Helper function to render level icon
-  const renderIconeNiveau = (indexNiveau) => {
+  const renderIconeNiveau = (indexNiveau : number) => {
     const IconeNiveau = NIVEAUX[indexNiveau]?.icon;
     return IconeNiveau ? (
       <IconeNiveau className="w-4 h-4" style={{ color: COLORS.accent }} />
@@ -181,7 +188,7 @@ const JeuEcoMan = () => {
   };
 
   // Initialize game
-  const initialiserNiveau = useCallback((indexNiveau) => {
+  const initialiserNiveau = useCallback((indexNiveau: number) => {
     const niveau = NIVEAUX[indexNiveau];
     const startX = 9;
     const startY = 15;
@@ -560,7 +567,7 @@ const JeuEcoMan = () => {
   };
 
   // Mobile touch controls
-  const gererMouvementTactile = (direction) => {
+  const gererMouvementTactile = (direction : any) => {
     switch (direction) {
       case "up":
         deplacerEcoMan(0, -1);
