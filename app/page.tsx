@@ -73,6 +73,11 @@ export default function Home() {
             Recycle Game
           </button>
         </Link>
+        <Link href="/articles">
+          <button className="px-4 py-2 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition-colors">
+            Articles
+          </button>
+        </Link>
       </nav>
       <div className="min-h-[300vh] md:min-h-[300vh] bg-[#0d0905] overflow-x-hidden pt-16 sm:pt-20">
         {/* Hero section */}
